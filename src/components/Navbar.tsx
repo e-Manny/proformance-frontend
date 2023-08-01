@@ -1,6 +1,6 @@
 export default function Navbar() {
   return (
-    <nav className="py-2 bg-body-tertiary border-bottom">
+    <nav className="py-2 bg-body-tertiary border-bottom ">
       <div className="container d-flex flex-wrap">
         <ul className="nav me-auto">
           <li className="nav-item">
@@ -15,16 +15,6 @@ export default function Navbar() {
           <li className="nav-item">
             <a href="#" className="nav-link link-body-emphasis px-2">
               Features
-            </a>
-          </li>
-          <li className="nav-item">
-            <a href="#" className="nav-link link-body-emphasis px-2">
-              Pricing
-            </a>
-          </li>
-          <li className="nav-item">
-            <a href="#" className="nav-link link-body-emphasis px-2">
-              FAQs
             </a>
           </li>
           <li className="nav-item">

@@ -1,5 +1,5 @@
 import proformance from "../assets/proformance_transparent.png";
-export default function AddProperty() {
+export default function EditProperty() {
   return (
     <>
       <div className="container">
@@ -12,10 +12,9 @@ export default function AddProperty() {
               width="120"
               height="120"
             ></img>
-            <h2>Add A Property</h2>
+            <h2>Edit Property</h2>
             <p className="lead">
-              Fill out the details below to add a new property to your
-              portfolio.
+              Fill out the details below to replace the values of your property.
             </p>
           </div>
 
@@ -386,7 +385,7 @@ export default function AddProperty() {
                 </div>
                 <hr className="my-4"></hr>
                 <button className="w-100 btn btn-primary btn-lg" type="submit">
-                  Add Property
+                  Update Property
                 </button>
               </form>
             </div>

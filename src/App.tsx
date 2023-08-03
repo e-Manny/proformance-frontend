@@ -6,6 +6,7 @@ import SignUp from "./pages/SignUp";
 import Portfolio from "./pages/Portfolio";
 import Property from "./pages/Property";
 import AddProperty from "./pages/AddProperty";
+import EditProperty from "./pages/EditProperty";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/property" element={<Property />} />
           <Route path="/addproperty" element={<AddProperty />} />
+          <Route path="/editproperty" element={<EditProperty />} />
         </Routes>
       </BrowserRouter>
     </>

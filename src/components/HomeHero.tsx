@@ -1,4 +1,5 @@
 import buildingsPhoto from "../assets/bldgs.jpg";
+import { Link } from "react-router-dom";
 export default function HomeHero() {
   return (
     <div className="container col-xxl-8 px-4">
@@ -19,23 +20,33 @@ export default function HomeHero() {
             Unlock Your Real Estate Investment Potential with Pro-Formance
           </h1>
           <p className="lead">
-            Quickly design and customize responsive mobile-first sites with
-            Bootstrap, the world’s most popular front-end open source toolkit,
-            featuring Sass variables and mixins, responsive grid system,
-            extensive prebuilt components, and powerful JavaScript plugins.
+            Proformance is a comprehensive web application designed for real
+            estate investors. The platform provides tools, data, and resources
+            to help users identify lucrative real estate investment
+            opportunities, analyze properties, and make informed financial
+            decisions.
           </p>
           <div className="d-grid gap-2 d-md-flex justify-content-md-start">
             <button
               type="button"
               className="btn btn-primary btn-lg px-4 me-md-2"
             >
-              Primary
+              <Link
+                to="/signin"
+                className="text-light"
+                style={{ textDecoration: "none" }}
+              >
+                Log In
+              </Link>
             </button>
-            <button
-              type="button"
-              className="btn btn-outline-secondary btn-lg px-4"
-            >
-              Default
+            <button type="button" className="btn btn-secondary btn-lg px-4">
+              <Link
+                to="/signup"
+                className="text-light"
+                style={{ textDecoration: "none" }}
+              >
+                Sign Up
+              </Link>
             </button>
           </div>
         </div>

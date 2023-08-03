@@ -1,6 +1,7 @@
 import balance from "../assets/balance.png";
 import calculator from "../assets/calculator.png";
 import presentation from "../assets/presentation.png";
+import { Link } from "react-router-dom";
 export default function Features() {
   return (
     <div className="container px-4" id="featured-3">
@@ -16,15 +17,18 @@ export default function Features() {
               loading="lazy"
             ></img>
           </div>
-          <h3 className="fs-2 text-body-emphasis">Featured title</h3>
+          <h3 className="fs-2 text-body-emphasis">
+            Empower Your Investment Strategy
+          </h3>
           <p>
-            Paragraph of text beneath the heading to explain the heading. We'll
-            add onto it with another sentence and probably just keep going until
-            we run out of words.
+            Unleash the power of scenario modeling to find your ideal real
+            estate deals. With Pro-Formance's modeling tool, you can
+            effortlessly explore different scenarios, crunch the numbers, and
+            discover how to make the deal work best for you.
           </p>
-          <a href="#" className="icon-link">
-            Call to action
-          </a>
+          <Link to="/signup" className="icon-link">
+            Balance Deals!
+          </Link>
         </div>
         <div className="feature col">
           <div className="feature-icon d-inline-flex align-items-center justify-content-center bg-gradient fs-2 mb-3">
@@ -37,15 +41,18 @@ export default function Features() {
               loading="lazy"
             ></img>
           </div>
-          <h3 className="fs-2 text-body-emphasis">Featured title</h3>
+          <h3 className="fs-2 text-body-emphasis">
+            Effortless Pro Forma Analysis
+          </h3>
           <p>
-            Paragraph of text beneath the heading to explain the heading. We'll
-            add onto it with another sentence and probably just keep going until
-            we run out of words.
+            Our Pro-Formance analysis tool streamlines the process, making
+            property evaluation quick and intuitive. Save time and make
+            confident investment decisions with just a few clicks before having
+            to fully underwrite the property.
           </p>
-          <a href="#" className="icon-link">
-            Call to action
-          </a>
+          <Link to="/signup" className="icon-link">
+            Save Time!
+          </Link>
         </div>
         <div className="feature col">
           <div className="feature-icon d-inline-flex align-items-center justify-content-center bg-gradient fs-2 mb-3">
@@ -58,15 +65,18 @@ export default function Features() {
               loading="lazy"
             ></img>
           </div>
-          <h3 className="fs-2 text-body-emphasis">Featured title</h3>
+          <h3 className="fs-2 text-body-emphasis">
+            Data-Driven Decisions Made Simple{" "}
+          </h3>
           <p>
-            Paragraph of text beneath the heading to explain the heading. We'll
-            add onto it with another sentence and probably just keep going until
-            we run out of words.
+            Make informed decisions with data visualization and actionable
+            metrics. Pro-Formance provides deal-specific analytics and trends,
+            allowing you to visualize key performance indicators and gain
+            valuable insights for smarter investment choices.
           </p>
-          <a href="#" className="icon-link">
-            Call to action
-          </a>
+          <Link to="/signup" className="icon-link">
+            Build a Portfolio!
+          </Link>
         </div>
       </div>
     </div>

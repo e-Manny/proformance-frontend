@@ -1,6 +1,7 @@
 import linkedin from "../assets/linkedin.png";
 import github from "../assets/github.png";
 import portfolio from "../assets/portfolio.png";
+import { Link } from "react-router-dom";
 export default function Footer() {
   return (
     <>
@@ -8,13 +9,16 @@ export default function Footer() {
         <footer className="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
           <div className="col-md-4 d-flex align-items-center">
             <span className="mb-3 mb-md-0 text-body-secondary">
-              © 2023 Manuel Espinoza
+              © 2023 Proformance
             </span>
           </div>
 
           <ul className="nav col-md-4 justify-content-end list-unstyled d-flex">
             <li className="ms-3">
-              <a className="text-body-secondary" href="#">
+              <Link
+                className="text-body-secondary"
+                to="https://www.linkedin.com/in/manny-espinoza-143809115/"
+              >
                 <img
                   src={linkedin}
                   className="d-block mx-lg-auto img-fluid bg-transparent"
@@ -23,10 +27,13 @@ export default function Footer() {
                   height="24"
                   loading="lazy"
                 ></img>
-              </a>
+              </Link>
             </li>
             <li className="ms-3">
-              <a className="text-body-secondary" href="#">
+              <Link
+                className="text-body-secondary"
+                to="https://github.com/e-Manny"
+              >
                 <img
                   src={github}
                   className="d-block mx-lg-auto img-fluid bg-transparent"
@@ -35,10 +42,13 @@ export default function Footer() {
                   height="24"
                   loading="lazy"
                 ></img>
-              </a>
+              </Link>
             </li>
             <li className="ms-3">
-              <a className="text-body-secondary" href="#">
+              <Link
+                className="text-body-secondary"
+                to="https://espinman.netlify.app/"
+              >
                 <img
                   src={portfolio}
                   className="d-block mx-lg-auto img-fluid bg-transparent"
@@ -47,7 +57,7 @@ export default function Footer() {
                   height="24"
                   loading="lazy"
                 ></img>
-              </a>
+              </Link>
             </li>
           </ul>
         </footer>

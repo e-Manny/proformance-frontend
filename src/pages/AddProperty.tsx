@@ -126,7 +126,7 @@ export default function AddProperty() {
                 <hr className="my-4"></hr>
                 <h4 className="mb-3">Acquisition Information</h4>
                 <div className="row g-3">
-                  <div className="col-sm-4">
+                  <div className="col-sm-6">
                     <label htmlFor="purchasePrice" className="form-label">
                       Purchase Price
                     </label>
@@ -139,7 +139,7 @@ export default function AddProperty() {
                       Valid purchase price is required.
                     </div>
                   </div>
-                  <div className="col-sm-4">
+                  <div className="col-sm-6">
                     <label htmlFor="closingCosts" className="form-label">
                       Closing Costs
                     </label>
@@ -152,7 +152,20 @@ export default function AddProperty() {
                       Valid closing costs is required.
                     </div>
                   </div>
-                  <div className="col-sm-4">
+                  <div className="col-sm-6">
+                    <label htmlFor="renoCosts" className="form-label">
+                      Initial Renovation Costs
+                    </label>
+                    <input
+                      type="number"
+                      className="form-control"
+                      id="renoCosts"
+                    ></input>
+                    <div className="invalid-feedback">
+                      Valid renovation costs is required.
+                    </div>
+                  </div>
+                  <div className="col-sm-6">
                     <label
                       htmlFor="annualPropertyGrowth"
                       className="form-label"

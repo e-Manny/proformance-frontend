@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 export default function Portfolio() {
   return (
     <>
@@ -5,12 +6,13 @@ export default function Portfolio() {
         className="navbar sticky-top bg-dark flex-md-nowrap p-0 shadow"
         data-bs-theme="dark"
       >
-        <a
+        <Link
           className="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6 text-white"
-          href="#"
+          to="/"
+          style={{ textDecoration: "none" }}
         >
           Proformance
-        </a>
+        </Link>
         <ul className="navbar-nav flex-row d-md-none">
           <li className="nav-item text-nowrap">
             <button
@@ -129,22 +131,9 @@ export default function Portfolio() {
                     type="button"
                     className="btn btn-sm btn-outline-secondary"
                   >
-                    Share
-                  </button>
-                  <button
-                    type="button"
-                    className="btn btn-sm btn-outline-secondary"
-                  >
                     Export
                   </button>
                 </div>
-                <button
-                  type="button"
-                  className="btn btn-sm btn-outline-secondary dropdown-toggle d-flex align-items-center gap-1"
-                >
-                  {/* <svg className="bi"><use xlink:href="#calendar3"></use></svg> */}
-                  This week
-                </button>
               </div>
             </div>
 
@@ -161,7 +150,7 @@ export default function Portfolio() {
               }}
             ></canvas>
 
-            <h2>Section title</h2>
+            <h2>Portfolio Cash Flow Pro Forma</h2>
             <div className="table-responsive small">
               <table className="table table-striped table-sm">
                 <thead>

@@ -1,5 +1,4 @@
 import buildingsPhoto from "../assets/bldgs.jpg";
-import { Link } from "react-router-dom";
 export default function SignedHomeHero() {
   return (
     <div className="container col-xxl-8 px-4">

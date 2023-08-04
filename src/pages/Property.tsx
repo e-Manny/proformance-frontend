@@ -1,3 +1,7 @@
+import { Link } from "react-router-dom";
+import testDict from "../components/testDict";
+
+const dataObject = testDict;
 export default function Property() {
   return (
     <>
@@ -5,12 +9,13 @@ export default function Property() {
         className="navbar sticky-top bg-dark flex-md-nowrap p-0 shadow"
         data-bs-theme="dark"
       >
-        <a
+        <Link
           className="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6 text-white"
-          href="#"
+          to="/"
+          style={{ textDecoration: "none" }}
         >
           Proformance
-        </a>
+        </Link>
         <ul className="navbar-nav flex-row d-md-none">
           <li className="nav-item text-nowrap">
             <button
@@ -39,7 +44,7 @@ export default function Property() {
             >
               <div className="offcanvas-header">
                 <h5 className="offcanvas-title" id="sidebarMenuLabel">
-                  Company name
+                  Proformance
                 </h5>
                 <button
                   type="button"
@@ -52,14 +57,13 @@ export default function Property() {
               <div className="offcanvas-body d-md-flex flex-column p-0 pt-lg-3 overflow-y-auto">
                 <ul className="nav flex-column">
                   <li className="nav-item">
-                    <a
+                    <Link
                       className="nav-link d-flex align-items-center gap-2 active"
                       aria-current="page"
-                      href="#"
+                      to="/portfolio"
                     >
-                      {/* <svg className="bi"><use xlink:href="#house-fill"></use></svg> */}
                       Portfolio
-                    </a>
+                    </Link>
                   </li>
                 </ul>
 
@@ -122,15 +126,9 @@ export default function Property() {
 
           <main className="col-md-9 ms-sm-auto col-lg-10 px-md-4">
             <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-              <h1 className="h2">Property xyz</h1>
+              <h1 className="h2">{dataObject.propertyName}</h1>
               <div className="btn-toolbar mb-2 mb-md-0">
                 <div className="btn-group me-2">
-                  <button
-                    type="button"
-                    className="btn btn-sm btn-outline-secondary"
-                  >
-                    Share
-                  </button>
                   <button
                     type="button"
                     className="btn btn-sm btn-outline-secondary"
@@ -138,13 +136,6 @@ export default function Property() {
                     Export
                   </button>
                 </div>
-                <button
-                  type="button"
-                  className="btn btn-sm btn-outline-secondary dropdown-toggle d-flex align-items-center gap-1"
-                >
-                  {/* <svg className="bi"><use xlink:href="#calendar3"></use></svg> */}
-                  This week
-                </button>
               </div>
             </div>
 
@@ -161,130 +152,159 @@ export default function Property() {
               }}
             ></canvas>
 
-            <h2>Section title</h2>
+            <h2>{dataObject.totalMonths}-Month Hold Period Analysis</h2>
             <div className="table-responsive small">
-              <table className="table table-striped table-sm">
+              <table className="table table-striped table-sm text-center">
                 <thead>
                   <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Header</th>
-                    <th scope="col">Header</th>
-                    <th scope="col">Header</th>
-                    <th scope="col">Header</th>
+                    <th>Month</th>
+                    {dataObject.months.map((month, i) => (
+                      <th scope="col">{month.month}</th>
+                    ))}
+                  </tr>
+                  <tr>
+                    <th>Year</th>
+                    {dataObject.months.map((month, i) => (
+                      <th scope="col">{month.year}</th>
+                    ))}
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td>1,001</td>
-                    <td>random</td>
-                    <td>data</td>
-                    <td>placeholder</td>
-                    <td>text</td>
+                    <td style={{ textAlign: "right" }}>Rental Income</td>
+                    {dataObject.months.map((month, i) => (
+                      <td>{month.rent}</td>
+                    ))}
                   </tr>
                   <tr>
-                    <td>1,002</td>
-                    <td>placeholder</td>
-                    <td>irrelevant</td>
-                    <td>visual</td>
-                    <td>layout</td>
+                    <td style={{ textAlign: "right" }}>Taxes</td>
+                    {dataObject.months.map((month, i) => (
+                      <td>{month.taxes}</td>
+                    ))}
                   </tr>
                   <tr>
-                    <td>1,003</td>
-                    <td>data</td>
-                    <td>rich</td>
-                    <td>dashboard</td>
-                    <td>tabular</td>
+                    <td style={{ textAlign: "right" }}>Insurance</td>
+                    {dataObject.months.map((month, i) => (
+                      <td>{month.insurance}</td>
+                    ))}
                   </tr>
                   <tr>
-                    <td>1,003</td>
-                    <td>information</td>
-                    <td>placeholder</td>
-                    <td>illustrative</td>
-                    <td>data</td>
+                    <td style={{ textAlign: "right" }}>Maintenance</td>
+                    {dataObject.months.map((month, i) => (
+                      <td>{month.maintenance}</td>
+                    ))}
                   </tr>
                   <tr>
-                    <td>1,004</td>
-                    <td>text</td>
-                    <td>random</td>
-                    <td>layout</td>
-                    <td>dashboard</td>
+                    <td style={{ textAlign: "right" }}>Property Management</td>
+                    {dataObject.months.map((month, i) => (
+                      <td>{month.management}</td>
+                    ))}
                   </tr>
                   <tr>
-                    <td>1,005</td>
-                    <td>dashboard</td>
-                    <td>irrelevant</td>
-                    <td>text</td>
-                    <td>placeholder</td>
+                    <td style={{ textAlign: "right" }}>Other</td>
+                    {dataObject.months.map((month, i) => (
+                      <td>{month.other}</td>
+                    ))}
                   </tr>
                   <tr>
-                    <td>1,006</td>
-                    <td>dashboard</td>
-                    <td>illustrative</td>
-                    <td>rich</td>
-                    <td>data</td>
+                    <td style={{ fontWeight: "bolder", textAlign: "right" }}>
+                      Net Operating Income
+                    </td>
+                    {dataObject.months.map((month, i) => (
+                      <td>{month.noi}</td>
+                    ))}
                   </tr>
                   <tr>
-                    <td>1,007</td>
-                    <td>placeholder</td>
-                    <td>tabular</td>
-                    <td>information</td>
-                    <td>irrelevant</td>
+                    <td style={{ textAlign: "right" }}>Capital Expenditures</td>
+                    {dataObject.months.map((month, i) => (
+                      <td>{month.capex}</td>
+                    ))}
                   </tr>
                   <tr>
-                    <td>1,008</td>
-                    <td>random</td>
-                    <td>data</td>
-                    <td>placeholder</td>
-                    <td>text</td>
+                    <td style={{ fontWeight: "bolder", textAlign: "right" }}>
+                      Cash Flow Before Debt Service
+                    </td>
+                    {dataObject.months.map((month, i) => (
+                      <td>{month.cfbds}</td>
+                    ))}
                   </tr>
                   <tr>
-                    <td>1,009</td>
-                    <td>placeholder</td>
-                    <td>irrelevant</td>
-                    <td>visual</td>
-                    <td>layout</td>
+                    <td style={{ textAlign: "right" }}>Principal Payments</td>
+                    {dataObject.months.map((month, i) => (
+                      <td>{month.principal}</td>
+                    ))}
                   </tr>
                   <tr>
-                    <td>1,010</td>
-                    <td>data</td>
-                    <td>rich</td>
-                    <td>dashboard</td>
-                    <td>tabular</td>
+                    <td style={{ textAlign: "right" }}>Interest Payments</td>
+                    {dataObject.months.map((month, i) => (
+                      <td>{month.interest}</td>
+                    ))}
                   </tr>
                   <tr>
-                    <td>1,011</td>
-                    <td>information</td>
-                    <td>placeholder</td>
-                    <td>illustrative</td>
-                    <td>data</td>
+                    <td style={{ fontWeight: "bolder", textAlign: "right" }}>
+                      Cash Flow After Debt Service
+                    </td>
+                    {dataObject.months.map((month, i) => (
+                      <td>{month.cfads}</td>
+                    ))}
                   </tr>
                   <tr>
-                    <td>1,012</td>
-                    <td>text</td>
-                    <td>placeholder</td>
-                    <td>layout</td>
-                    <td>dashboard</td>
+                    <td style={{ textAlign: "right" }}>Purchase Price</td>
+                    {dataObject.months.map((month, i) => (
+                      <td>{month.purchase}</td>
+                    ))}
                   </tr>
                   <tr>
-                    <td>1,013</td>
-                    <td>dashboard</td>
-                    <td>irrelevant</td>
-                    <td>text</td>
-                    <td>visual</td>
+                    <td style={{ textAlign: "right" }}>Closing Costs</td>
+                    {dataObject.months.map((month, i) => (
+                      <td>{month.closingCosts}</td>
+                    ))}
                   </tr>
                   <tr>
-                    <td>1,014</td>
-                    <td>dashboard</td>
-                    <td>illustrative</td>
-                    <td>rich</td>
-                    <td>data</td>
+                    <td style={{ textAlign: "right" }}>Initial Renovations</td>
+                    {dataObject.months.map((month, i) => (
+                      <td>{month.initialRenovations}</td>
+                    ))}
                   </tr>
                   <tr>
-                    <td>1,015</td>
-                    <td>random</td>
-                    <td>tabular</td>
-                    <td>information</td>
-                    <td>text</td>
+                    <td style={{ textAlign: "right" }}>Sale Proceeds</td>
+                    {dataObject.months.map((month, i) => (
+                      <td>{month.saleProceeds}</td>
+                    ))}
+                  </tr>
+                  <tr>
+                    <td style={{ textAlign: "right" }}>Costs of Sale</td>
+                    {dataObject.months.map((month, i) => (
+                      <td>{month.saleCost}</td>
+                    ))}
+                  </tr>
+                  <tr>
+                    <td style={{ fontWeight: "bolder", textAlign: "right" }}>
+                      Total Unlevered Cash Flow
+                    </td>
+                    {dataObject.months.map((month, i) => (
+                      <td>{month.unleveredCF}</td>
+                    ))}
+                  </tr>
+                  <tr>
+                    <td style={{ textAlign: "right" }}>Loan Proceeds</td>
+                    {dataObject.months.map((month, i) => (
+                      <td>{month.loanProceeds}</td>
+                    ))}
+                  </tr>
+                  <tr>
+                    <td style={{ textAlign: "right" }}>Loan Payoff</td>
+                    {dataObject.months.map((month, i) => (
+                      <td>{month.loanPayoff}</td>
+                    ))}
+                  </tr>
+                  <tr>
+                    <td style={{ fontWeight: "bolder", textAlign: "right" }}>
+                      Total Levered Cash Flow
+                    </td>
+                    {dataObject.months.map((month, i) => (
+                      <td>{month.totalLeverCF}</td>
+                    ))}
                   </tr>
                 </tbody>
               </table>

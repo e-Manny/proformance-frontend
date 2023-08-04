@@ -157,15 +157,19 @@ export default function Portfolio() {
               <table className="table table-striped table-sm text-center">
                 <thead>
                   <tr>
-                    <th>Month</th>
+                    <th style={{ textAlign: "right" }}>Month</th>
                     {dataObject.months.map((month, i) => (
-                      <th scope="col">{month.month}</th>
+                      <th scope="col" style={{ textAlign: "right" }}>
+                        {month.month}
+                      </th>
                     ))}
                   </tr>
                   <tr>
-                    <th>Year</th>
+                    <th style={{ textAlign: "right" }}>Year</th>
                     {dataObject.months.map((month, i) => (
-                      <th scope="col">{month.year}</th>
+                      <th style={{ textAlign: "right" }} scope="col">
+                        {month.year}
+                      </th>
                     ))}
                   </tr>
                 </thead>
@@ -173,37 +177,39 @@ export default function Portfolio() {
                   <tr>
                     <td style={{ textAlign: "right" }}>Rental Income</td>
                     {dataObject.months.map((month, i) => (
-                      <td>{month.rent}</td>
+                      <td style={{ textAlign: "right" }}>{month.rent}</td>
                     ))}
                   </tr>
                   <tr>
                     <td style={{ textAlign: "right" }}>Taxes</td>
                     {dataObject.months.map((month, i) => (
-                      <td>{month.taxes}</td>
+                      <td style={{ textAlign: "right" }}>{month.taxes}</td>
                     ))}
                   </tr>
                   <tr>
                     <td style={{ textAlign: "right" }}>Insurance</td>
                     {dataObject.months.map((month, i) => (
-                      <td>{month.insurance}</td>
+                      <td style={{ textAlign: "right" }}>{month.insurance}</td>
                     ))}
                   </tr>
                   <tr>
                     <td style={{ textAlign: "right" }}>Maintenance</td>
                     {dataObject.months.map((month, i) => (
-                      <td>{month.maintenance}</td>
+                      <td style={{ textAlign: "right" }}>
+                        {month.maintenance}
+                      </td>
                     ))}
                   </tr>
                   <tr>
                     <td style={{ textAlign: "right" }}>Property Management</td>
                     {dataObject.months.map((month, i) => (
-                      <td>{month.management}</td>
+                      <td style={{ textAlign: "right" }}>{month.management}</td>
                     ))}
                   </tr>
                   <tr>
                     <td style={{ textAlign: "right" }}>Other</td>
                     {dataObject.months.map((month, i) => (
-                      <td>{month.other}</td>
+                      <td style={{ textAlign: "right" }}>{month.other}</td>
                     ))}
                   </tr>
                   <tr>
@@ -211,13 +217,13 @@ export default function Portfolio() {
                       Net Operating Income
                     </td>
                     {dataObject.months.map((month, i) => (
-                      <td>{month.noi}</td>
+                      <td style={{ textAlign: "right" }}>{month.noi}</td>
                     ))}
                   </tr>
                   <tr>
                     <td style={{ textAlign: "right" }}>Capital Expenditures</td>
                     {dataObject.months.map((month, i) => (
-                      <td>{month.capex}</td>
+                      <td style={{ textAlign: "right" }}>{month.capex}</td>
                     ))}
                   </tr>
                   <tr>
@@ -225,19 +231,19 @@ export default function Portfolio() {
                       Cash Flow Before Debt Service
                     </td>
                     {dataObject.months.map((month, i) => (
-                      <td>{month.cfbds}</td>
+                      <td style={{ textAlign: "right" }}>{month.cfbds}</td>
                     ))}
                   </tr>
                   <tr>
                     <td style={{ textAlign: "right" }}>Principal Payments</td>
                     {dataObject.months.map((month, i) => (
-                      <td>{month.principal}</td>
+                      <td style={{ textAlign: "right" }}>{month.principal}</td>
                     ))}
                   </tr>
                   <tr>
                     <td style={{ textAlign: "right" }}>Interest Payments</td>
                     {dataObject.months.map((month, i) => (
-                      <td>{month.interest}</td>
+                      <td style={{ textAlign: "right" }}>{month.interest}</td>
                     ))}
                   </tr>
                   <tr>
@@ -245,37 +251,43 @@ export default function Portfolio() {
                       Cash Flow After Debt Service
                     </td>
                     {dataObject.months.map((month, i) => (
-                      <td>{month.cfads}</td>
+                      <td style={{ textAlign: "right" }}>{month.cfads}</td>
                     ))}
                   </tr>
                   <tr>
                     <td style={{ textAlign: "right" }}>Purchase Price</td>
                     {dataObject.months.map((month, i) => (
-                      <td>{month.purchase}</td>
+                      <td style={{ textAlign: "right" }}>{month.purchase}</td>
                     ))}
                   </tr>
                   <tr>
                     <td style={{ textAlign: "right" }}>Closing Costs</td>
                     {dataObject.months.map((month, i) => (
-                      <td>{month.closingCosts}</td>
+                      <td style={{ textAlign: "right" }}>
+                        {month.closingCosts}
+                      </td>
                     ))}
                   </tr>
                   <tr>
                     <td style={{ textAlign: "right" }}>Initial Renovations</td>
                     {dataObject.months.map((month, i) => (
-                      <td>{month.initialRenovations}</td>
+                      <td style={{ textAlign: "right" }}>
+                        {month.initialRenovations}
+                      </td>
                     ))}
                   </tr>
                   <tr>
                     <td style={{ textAlign: "right" }}>Sale Proceeds</td>
                     {dataObject.months.map((month, i) => (
-                      <td>{month.saleProceeds}</td>
+                      <td style={{ textAlign: "right" }}>
+                        {month.saleProceeds}
+                      </td>
                     ))}
                   </tr>
                   <tr>
                     <td style={{ textAlign: "right" }}>Costs of Sale</td>
                     {dataObject.months.map((month, i) => (
-                      <td>{month.saleCost}</td>
+                      <td style={{ textAlign: "right" }}>{month.saleCost}</td>
                     ))}
                   </tr>
                   <tr>
@@ -283,19 +295,23 @@ export default function Portfolio() {
                       Total Unlevered Cash Flow
                     </td>
                     {dataObject.months.map((month, i) => (
-                      <td>{month.unleveredCF}</td>
+                      <td style={{ textAlign: "right" }}>
+                        {month.unleveredCF}
+                      </td>
                     ))}
                   </tr>
                   <tr>
                     <td style={{ textAlign: "right" }}>Loan Proceeds</td>
                     {dataObject.months.map((month, i) => (
-                      <td>{month.loanProceeds}</td>
+                      <td style={{ textAlign: "right" }}>
+                        {month.loanProceeds}
+                      </td>
                     ))}
                   </tr>
                   <tr>
                     <td style={{ textAlign: "right" }}>Loan Payoff</td>
                     {dataObject.months.map((month, i) => (
-                      <td>{month.loanPayoff}</td>
+                      <td style={{ textAlign: "right" }}>{month.loanPayoff}</td>
                     ))}
                   </tr>
                   <tr>
@@ -303,7 +319,9 @@ export default function Portfolio() {
                       Total Levered Cash Flow
                     </td>
                     {dataObject.months.map((month, i) => (
-                      <td>{month.totalLeverCF}</td>
+                      <td style={{ textAlign: "right" }}>
+                        {month.totalLeverCF}
+                      </td>
                     ))}
                   </tr>
                 </tbody>

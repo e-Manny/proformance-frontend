@@ -158,7 +158,7 @@ export default function Property() {
                 <thead>
                   <tr>
                     <th style={{ textAlign: "right" }}>Month</th>
-                    {dataObject.months.map((month, i) => (
+                    {dataObject.months.map((month) => (
                       <th scope="col" style={{ textAlign: "right" }}>
                         {month.month}
                       </th>
@@ -166,7 +166,7 @@ export default function Property() {
                   </tr>
                   <tr>
                     <th style={{ textAlign: "right" }}>Year</th>
-                    {dataObject.months.map((month, i) => (
+                    {dataObject.months.map((month) => (
                       <th style={{ textAlign: "right" }} scope="col">
                         {month.year}
                       </th>
@@ -176,25 +176,25 @@ export default function Property() {
                 <tbody>
                   <tr>
                     <td style={{ textAlign: "right" }}>Rental Income</td>
-                    {dataObject.months.map((month, i) => (
+                    {dataObject.months.map((month) => (
                       <td style={{ textAlign: "right" }}>{month.rent}</td>
                     ))}
                   </tr>
                   <tr>
                     <td style={{ textAlign: "right" }}>Taxes</td>
-                    {dataObject.months.map((month, i) => (
+                    {dataObject.months.map((month) => (
                       <td style={{ textAlign: "right" }}>{month.taxes}</td>
                     ))}
                   </tr>
                   <tr>
                     <td style={{ textAlign: "right" }}>Insurance</td>
-                    {dataObject.months.map((month, i) => (
+                    {dataObject.months.map((month) => (
                       <td style={{ textAlign: "right" }}>{month.insurance}</td>
                     ))}
                   </tr>
                   <tr>
                     <td style={{ textAlign: "right" }}>Maintenance</td>
-                    {dataObject.months.map((month, i) => (
+                    {dataObject.months.map((month) => (
                       <td style={{ textAlign: "right" }}>
                         {month.maintenance}
                       </td>
@@ -202,13 +202,13 @@ export default function Property() {
                   </tr>
                   <tr>
                     <td style={{ textAlign: "right" }}>Property Management</td>
-                    {dataObject.months.map((month, i) => (
+                    {dataObject.months.map((month) => (
                       <td style={{ textAlign: "right" }}>{month.management}</td>
                     ))}
                   </tr>
                   <tr>
                     <td style={{ textAlign: "right" }}>Other</td>
-                    {dataObject.months.map((month, i) => (
+                    {dataObject.months.map((month) => (
                       <td style={{ textAlign: "right" }}>{month.other}</td>
                     ))}
                   </tr>
@@ -216,13 +216,13 @@ export default function Property() {
                     <td style={{ fontWeight: "bolder", textAlign: "right" }}>
                       Net Operating Income
                     </td>
-                    {dataObject.months.map((month, i) => (
+                    {dataObject.months.map((month) => (
                       <td style={{ textAlign: "right" }}>{month.noi}</td>
                     ))}
                   </tr>
                   <tr>
                     <td style={{ textAlign: "right" }}>Capital Expenditures</td>
-                    {dataObject.months.map((month, i) => (
+                    {dataObject.months.map((month) => (
                       <td style={{ textAlign: "right" }}>{month.capex}</td>
                     ))}
                   </tr>
@@ -230,19 +230,19 @@ export default function Property() {
                     <td style={{ fontWeight: "bolder", textAlign: "right" }}>
                       Cash Flow Before Debt Service
                     </td>
-                    {dataObject.months.map((month, i) => (
+                    {dataObject.months.map((month) => (
                       <td style={{ textAlign: "right" }}>{month.cfbds}</td>
                     ))}
                   </tr>
                   <tr>
                     <td style={{ textAlign: "right" }}>Principal Payments</td>
-                    {dataObject.months.map((month, i) => (
+                    {dataObject.months.map((month) => (
                       <td style={{ textAlign: "right" }}>{month.principal}</td>
                     ))}
                   </tr>
                   <tr>
                     <td style={{ textAlign: "right" }}>Interest Payments</td>
-                    {dataObject.months.map((month, i) => (
+                    {dataObject.months.map((month) => (
                       <td style={{ textAlign: "right" }}>{month.interest}</td>
                     ))}
                   </tr>
@@ -250,19 +250,19 @@ export default function Property() {
                     <td style={{ fontWeight: "bolder", textAlign: "right" }}>
                       Cash Flow After Debt Service
                     </td>
-                    {dataObject.months.map((month, i) => (
+                    {dataObject.months.map((month) => (
                       <td style={{ textAlign: "right" }}>{month.cfads}</td>
                     ))}
                   </tr>
                   <tr>
                     <td style={{ textAlign: "right" }}>Purchase Price</td>
-                    {dataObject.months.map((month, i) => (
+                    {dataObject.months.map((month) => (
                       <td style={{ textAlign: "right" }}>{month.purchase}</td>
                     ))}
                   </tr>
                   <tr>
                     <td style={{ textAlign: "right" }}>Closing Costs</td>
-                    {dataObject.months.map((month, i) => (
+                    {dataObject.months.map((month) => (
                       <td style={{ textAlign: "right" }}>
                         {month.closingCosts}
                       </td>
@@ -270,7 +270,7 @@ export default function Property() {
                   </tr>
                   <tr>
                     <td style={{ textAlign: "right" }}>Initial Renovations</td>
-                    {dataObject.months.map((month, i) => (
+                    {dataObject.months.map((month) => (
                       <td style={{ textAlign: "right" }}>
                         {month.initialRenovations}
                       </td>
@@ -278,7 +278,7 @@ export default function Property() {
                   </tr>
                   <tr>
                     <td style={{ textAlign: "right" }}>Sale Proceeds</td>
-                    {dataObject.months.map((month, i) => (
+                    {dataObject.months.map((month) => (
                       <td style={{ textAlign: "right" }}>
                         {month.saleProceeds}
                       </td>
@@ -286,7 +286,7 @@ export default function Property() {
                   </tr>
                   <tr>
                     <td style={{ textAlign: "right" }}>Costs of Sale</td>
-                    {dataObject.months.map((month, i) => (
+                    {dataObject.months.map((month) => (
                       <td style={{ textAlign: "right" }}>{month.saleCost}</td>
                     ))}
                   </tr>
@@ -294,7 +294,7 @@ export default function Property() {
                     <td style={{ fontWeight: "bolder", textAlign: "right" }}>
                       Total Unlevered Cash Flow
                     </td>
-                    {dataObject.months.map((month, i) => (
+                    {dataObject.months.map((month) => (
                       <td style={{ textAlign: "right" }}>
                         {month.unleveredCF}
                       </td>
@@ -302,7 +302,7 @@ export default function Property() {
                   </tr>
                   <tr>
                     <td style={{ textAlign: "right" }}>Loan Proceeds</td>
-                    {dataObject.months.map((month, i) => (
+                    {dataObject.months.map((month) => (
                       <td style={{ textAlign: "right" }}>
                         {month.loanProceeds}
                       </td>
@@ -310,7 +310,7 @@ export default function Property() {
                   </tr>
                   <tr>
                     <td style={{ textAlign: "right" }}>Loan Payoff</td>
-                    {dataObject.months.map((month, i) => (
+                    {dataObject.months.map((month) => (
                       <td style={{ textAlign: "right" }}>{month.loanPayoff}</td>
                     ))}
                   </tr>
@@ -318,7 +318,7 @@ export default function Property() {
                     <td style={{ fontWeight: "bolder", textAlign: "right" }}>
                       Total Levered Cash Flow
                     </td>
-                    {dataObject.months.map((month, i) => (
+                    {dataObject.months.map((month) => (
                       <td style={{ textAlign: "right" }}>
                         {month.totalLeverCF}
                       </td>

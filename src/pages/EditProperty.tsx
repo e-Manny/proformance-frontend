@@ -1,5 +1,6 @@
 import proformance from "../assets/proformance_transparent.png";
 import Footer from "../components/Footer";
+import editDict from "../components/editDict";
 export default function EditProperty() {
   return (
     <>
@@ -356,7 +357,7 @@ export default function EditProperty() {
                   </div>
                   <div className="col-sm-4">
                     <label htmlFor="amortization" className="form-label">
-                      Amortization
+                      Amortization (years)
                     </label>
                     <input
                       type="number"
@@ -385,7 +386,7 @@ export default function EditProperty() {
                   </div>
                   <div className="col-sm-6">
                     <label htmlFor="saleClosingCosts" className="form-label">
-                      Closing Costs
+                      Sale Closing Costs
                     </label>
                     <input
                       type="number"
@@ -393,7 +394,7 @@ export default function EditProperty() {
                       id="saleClosingCosts"
                     ></input>
                     <div className="invalid-feedback">
-                      Valid closing costs is required.
+                      Valid sale closing costs is required.
                     </div>
                   </div>
                 </div>

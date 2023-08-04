@@ -357,7 +357,7 @@ export default function AddProperty() {
                   </div>
                   <div className="col-sm-4">
                     <label htmlFor="amortization" className="form-label">
-                      Amortization
+                      Amortization (years)
                     </label>
                     <input
                       type="number"
@@ -386,7 +386,7 @@ export default function AddProperty() {
                   </div>
                   <div className="col-sm-6">
                     <label htmlFor="saleClosingCosts" className="form-label">
-                      Closing Costs
+                      Sale Closing Costs
                     </label>
                     <input
                       type="number"

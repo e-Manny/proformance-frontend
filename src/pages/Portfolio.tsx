@@ -1,16 +1,31 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import testDict from "../components/testDict";
+import plusSign from "../assets/plusSign.png";
+import hamburgerMenu from "../assets/hamburger.png";
+import httpClient from "../httpClient";
 
 const dataObject = testDict;
+
 export default function Portfolio() {
+  const navigate = useNavigate();
+
+  const userSignout = async () => {
+    try {
+      await httpClient.post("http://127.0.0.1:5000/logout");
+      navigate("/");
+    } catch (error) {
+      console.error("Error:", error);
+      window.location.reload();
+    }
+  };
   return (
     <>
       <header
-        className="navbar sticky-top bg-dark flex-md-nowrap p-0 shadow"
+        className="navbar sticky-top bg-light flex-md-nowrap p-0 shadow"
         data-bs-theme="dark"
       >
         <Link
-          className="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6 text-white"
+          className="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6 text-dark"
           to="/"
           style={{ textDecoration: "none" }}
         >
@@ -28,7 +43,7 @@ export default function Portfolio() {
               aria-label="Toggle navigation"
             >
               {/* <svg className="bi"><use xlink:href="#list"></use></svg> */}
-              Expand
+              <img src={hamburgerMenu} height={20} width={20}></img>
             </button>
           </li>
         </ul>
@@ -69,13 +84,13 @@ export default function Portfolio() {
 
                 <h6 className="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-body-secondary text-uppercase">
                   <span>Properties</span>
-                  <a
+                  <Link
                     className="link-secondary"
-                    href="#"
+                    to="/addproperty"
                     aria-label="Add a new report"
                   >
-                    {/* <svg className="bi"><use xlink:href="#plus-circle"></use></svg> */}
-                  </a>
+                    <img src={plusSign} height={20} width={20}></img>
+                  </Link>
                 </h6>
                 <ul className="nav flex-column mb-auto">
                   <li className="nav-item">
@@ -83,7 +98,6 @@ export default function Portfolio() {
                       className="nav-link d-flex align-items-center gap-2"
                       href="#"
                     >
-                      {/* <svg className="bi"><use xlink:href="#file-earmark-text"></use></svg> */}
                       Prop 1
                     </a>
                   </li>
@@ -92,7 +106,6 @@ export default function Portfolio() {
                       className="nav-link d-flex align-items-center gap-2"
                       href="#"
                     >
-                      {/* <svg className="bi"><use xlink:href="#file-earmark-text"></use></svg> */}
                       Prop 2
                     </a>
                   </li>
@@ -106,18 +119,17 @@ export default function Portfolio() {
                       className="nav-link d-flex align-items-center gap-2"
                       href="#"
                     >
-                      {/* <svg className="bi"><use xlink:href="#gear-wide-connected"></use></svg> */}
                       Settings
                     </a>
                   </li>
                   <li className="nav-item">
-                    <a
+                    <Link
                       className="nav-link d-flex align-items-center gap-2"
-                      href="#"
+                      onClick={userSignout}
+                      to={"/"}
                     >
-                      {/* <svg className="bi"><use xlink:href="#door-closed"></use></svg> */}
                       Sign out
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </div>

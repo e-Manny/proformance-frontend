@@ -1,6 +1,72 @@
 import proformance from "../assets/proformance_transparent.png";
 import Footer from "../components/Footer";
+import httpClient from "../httpClient";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 export default function AddProperty() {
+  const [propertyName, setPropertyName] = useState("");
+  const [yearBuilt, setYearBuilt] = useState("");
+  const [address, setAddress] = useState("");
+  const [state, setState] = useState("");
+  const [city, setCity] = useState("");
+  const [zipCode, setZipCode] = useState("");
+  const [purchasePrice, setPurchasePrice] = useState("");
+  const [purchaseClosingCosts, setPurchaseClosingCosts] = useState("");
+  const [renovationCosts, setRenovationCosts] = useState("");
+  const [valueGrowthRate, setValueGrowthRate] = useState("");
+  const [anualRentalIncome, setAnualRentalIncome] = useState("");
+  const [rentGrowthRate, setRentGrowthRate] = useState("");
+  const [propertyTax, setPropertyTax] = useState("");
+  const [insurance, setInsurance] = useState("");
+  const [maintenance, setMaintenance] = useState("");
+  const [propertyManagement, setPropertyManagement] = useState("");
+  const [otherExpense, setOtherExpense] = useState("");
+  const [expenseGrowth, setExpenseGrowth] = useState("");
+  const [capEx, setCapEx] = useState("");
+  const [capExGrowthRate, setCapExGrowthRate] = useState("");
+  const [loanAmount, setLoanAmount] = useState("");
+  const [interestRate, setInterestRate] = useState("");
+  const [amortizationYears, setAmortizationYears] = useState("");
+  const [holdingPeriod, setHoldingPeriod] = useState("");
+  const [saleClosingCosts, setSaleClosingCosts] = useState("");
+
+  const navigate = useNavigate();
+  const addProperty = async () => {
+    try {
+      const resp = await httpClient.post("http://127.0.0.1:5000/addproperty", {
+        propertyName,
+        yearBuilt,
+        address,
+        state,
+        city,
+        zipCode,
+        purchasePrice,
+        purchaseClosingCosts,
+        renovationCosts,
+        valueGrowthRate,
+        anualRentalIncome,
+        rentGrowthRate,
+        propertyTax,
+        insurance,
+        maintenance,
+        propertyManagement,
+        otherExpense,
+        expenseGrowth,
+        capEx,
+        capExGrowthRate,
+        loanAmount,
+        interestRate,
+        amortizationYears,
+        holdingPeriod,
+        saleClosingCosts,
+      });
+      navigate("/portfolio");
+    } catch (error: any) {
+      if (error.response.status === 401) {
+        alert("Unauthorized");
+      }
+    }
+  };
   return (
     <>
       <div className="container">
@@ -34,6 +100,8 @@ export default function AddProperty() {
                       className="form-control"
                       id="propertyName"
                       placeholder="Main St Deal"
+                      value={propertyName}
+                      onChange={(e) => setPropertyName(e.target.value)}
                     ></input>
                     <div className="invalid-feedback">
                       Valid property name is required.
@@ -51,6 +119,8 @@ export default function AddProperty() {
                       min={1700}
                       max={2100}
                       placeholder="2002"
+                      value={yearBuilt}
+                      onChange={(e) => setYearBuilt(e.target.value)}
                     ></input>
                     <div className="invalid-feedback">
                       Valid year built is required.
@@ -65,6 +135,8 @@ export default function AddProperty() {
                       className="form-control"
                       id="address"
                       placeholder="1234 Main St"
+                      value={address}
+                      onChange={(e) => setAddress(e.target.value)}
                     ></input>
                     <div className="invalid-feedback">
                       Please enter a valid address.
@@ -79,46 +151,42 @@ export default function AddProperty() {
                       className="form-control"
                       id="city"
                       placeholder="New York"
+                      value={city}
+                      onChange={(e) => setCity(e.target.value)}
                     ></input>
                     <div className="invalid-feedback">
                       Please enter a valid city.
                     </div>
                   </div>
-                  <div className="col-md-5">
-                    <label htmlFor="country" className="form-label">
-                      Country
-                    </label>
-                    <select className="form-select" id="country">
-                      <option>Choose...</option>
-                      <option>United States</option>
-                    </select>
-                    <div className="invalid-feedback">
-                      Please select a valid country.
-                    </div>
-                  </div>
-                  <div className="col-md-4">
+                  <div className="col-md-6">
                     <label htmlFor="state" className="form-label">
                       State
                     </label>
-                    <select className="form-select" id="state">
-                      <option>Choose...</option>
-                      <option>California</option>
-                    </select>
+                    <input
+                      type="text"
+                      className="form-control"
+                      id="state"
+                      placeholder="California"
+                      value={state}
+                      onChange={(e) => setState(e.target.value)}
+                    ></input>
                     <div className="invalid-feedback">
                       Please provide a valid state.
                     </div>
                   </div>
-                  <div className="col-md-3">
-                    <label htmlFor="zip" className="form-label">
+                  <div className="col-md-6">
+                    <label htmlFor="zipCode" className="form-label">
                       Zip
                     </label>
                     <input
                       type="text"
                       className="form-control"
-                      id="zip"
+                      id="zipCode"
                       minLength={5}
                       maxLength={5}
                       placeholder="12345"
+                      value={zipCode}
+                      onChange={(e) => setZipCode(e.target.value)}
                     ></input>
                     <div className="invalid-feedback">Zip code required.</div>
                   </div>
@@ -134,48 +202,56 @@ export default function AddProperty() {
                       type="number"
                       className="form-control"
                       id="purchasePrice"
+                      value={purchasePrice}
+                      onChange={(e) => setPurchasePrice(e.target.value)}
                     ></input>
                     <div className="invalid-feedback">
                       Valid purchase price is required.
                     </div>
                   </div>
                   <div className="col-sm-6">
-                    <label htmlFor="closingCosts" className="form-label">
+                    <label
+                      htmlFor="purchaseClosingCosts"
+                      className="form-label"
+                    >
                       Closing Costs
                     </label>
                     <input
                       type="number"
                       className="form-control"
-                      id="closingCosts"
+                      id="purchaseClosingCosts"
+                      value={purchaseClosingCosts}
+                      onChange={(e) => setPurchaseClosingCosts(e.target.value)}
                     ></input>
                     <div className="invalid-feedback">
                       Valid closing costs is required.
                     </div>
                   </div>
                   <div className="col-sm-6">
-                    <label htmlFor="renoCosts" className="form-label">
+                    <label htmlFor="renovationCosts" className="form-label">
                       Initial Renovation Costs
                     </label>
                     <input
                       type="number"
                       className="form-control"
-                      id="renoCosts"
+                      id="renovationCosts"
+                      value={renovationCosts}
+                      onChange={(e) => setRenovationCosts(e.target.value)}
                     ></input>
                     <div className="invalid-feedback">
                       Valid renovation costs is required.
                     </div>
                   </div>
                   <div className="col-sm-6">
-                    <label
-                      htmlFor="annualPropertyGrowth"
-                      className="form-label"
-                    >
+                    <label htmlFor="valueGrowthRate" className="form-label">
                       Assumed Annual Value Growth Rate (%)
                     </label>
                     <input
                       type="number"
                       className="form-control"
-                      id="annualPropertyGrowth"
+                      id="valueGrowthRate"
+                      value={valueGrowthRate}
+                      onChange={(e) => setValueGrowthRate(e.target.value)}
                     ></input>
                     <div className="invalid-feedback">
                       Valid annual growth is required.
@@ -186,13 +262,15 @@ export default function AddProperty() {
                 <h4 className="mb-3">Rental Income</h4>
                 <div className="row g-3">
                   <div className="col-sm-6">
-                    <label htmlFor="income" className="form-label">
+                    <label htmlFor="anualRentalIncome" className="form-label">
                       Annual Rental Income
                     </label>
                     <input
                       type="number"
                       className="form-control"
-                      id="income"
+                      id="anualRentalIncome"
+                      value={anualRentalIncome}
+                      onChange={(e) => setAnualRentalIncome(e.target.value)}
                     ></input>
                     <div className="invalid-feedback">
                       Valid annual rental income is required.
@@ -200,13 +278,15 @@ export default function AddProperty() {
                   </div>
 
                   <div className="col-sm-6">
-                    <label htmlFor="closingCosts" className="form-label">
+                    <label htmlFor="rentGrowthRate" className="form-label">
                       Assumed Annual Rent Growth Rate (%)
                     </label>
                     <input
                       type="number"
                       className="form-control"
-                      id="closingCosts"
+                      id="rentGrowthRate"
+                      value={rentGrowthRate}
+                      onChange={(e) => setRentGrowthRate(e.target.value)}
                     ></input>
                     <div className="invalid-feedback">
                       Valid annual rental growth rate is required.
@@ -224,6 +304,8 @@ export default function AddProperty() {
                       type="number"
                       className="form-control"
                       id="propertyTax"
+                      value={propertyTax}
+                      onChange={(e) => setPropertyTax(e.target.value)}
                     ></input>
                     <div className="invalid-feedback">
                       Valid purchase price is required.
@@ -238,6 +320,8 @@ export default function AddProperty() {
                       type="number"
                       className="form-control"
                       id="insurance"
+                      value={insurance}
+                      onChange={(e) => setInsurance(e.target.value)}
                     ></input>
                     <div className="invalid-feedback">
                       Valid insurance cost is required.
@@ -251,6 +335,8 @@ export default function AddProperty() {
                       type="number"
                       className="form-control"
                       id="maintenance"
+                      value={maintenance}
+                      onChange={(e) => setMaintenance(e.target.value)}
                     ></input>
                     <div className="invalid-feedback">
                       Valid maintenance cost is required.
@@ -264,6 +350,8 @@ export default function AddProperty() {
                       type="number"
                       className="form-control"
                       id="propertyManagement"
+                      value={propertyManagement}
+                      onChange={(e) => setPropertyManagement(e.target.value)}
                     ></input>
                     <div className="invalid-feedback">
                       Valid management cost is required.
@@ -277,6 +365,8 @@ export default function AddProperty() {
                       type="number"
                       className="form-control"
                       id="otherExpense"
+                      value={otherExpense}
+                      onChange={(e) => setOtherExpense(e.target.value)}
                     ></input>
                     <div className="invalid-feedback">
                       Valid other cost is required.
@@ -290,6 +380,8 @@ export default function AddProperty() {
                       type="number"
                       className="form-control"
                       id="expenseGrowth"
+                      value={expenseGrowth}
+                      onChange={(e) => setExpenseGrowth(e.target.value)}
                     ></input>
                     <div className="invalid-feedback">
                       Valid management cost is required.
@@ -307,19 +399,23 @@ export default function AddProperty() {
                       type="number"
                       className="form-control"
                       id="capEx"
+                      value={capEx}
+                      onChange={(e) => setCapEx(e.target.value)}
                     ></input>
                     <div className="invalid-feedback">
                       Valid annual capital expenditure is required.
                     </div>
                   </div>
                   <div className="col-sm-6">
-                    <label htmlFor="capExGrowth" className="form-label">
+                    <label htmlFor="capExGrowthRate" className="form-label">
                       Assumed Annual CapEx Growth Rate (%)
                     </label>
                     <input
                       type="number"
                       className="form-control"
-                      id="capExGrowth"
+                      id="capExGrowthRate"
+                      value={capExGrowthRate}
+                      onChange={(e) => setCapExGrowthRate(e.target.value)}
                     ></input>
                     <div className="invalid-feedback">
                       Valid annual capEx growth rate is required.
@@ -330,13 +426,15 @@ export default function AddProperty() {
                 <h4 className="mb-3">Debt Service</h4>
                 <div className="row g-3">
                   <div className="col-sm-4">
-                    <label htmlFor="LoanAmount" className="form-label">
+                    <label htmlFor="loanAmount" className="form-label">
                       Loan Amount
                     </label>
                     <input
                       type="number"
                       className="form-control"
-                      id="LoanAmount"
+                      id="loanAmount"
+                      value={loanAmount}
+                      onChange={(e) => setLoanAmount(e.target.value)}
                     ></input>
                     <div className="invalid-feedback">
                       Valid loan amount is required.
@@ -350,19 +448,23 @@ export default function AddProperty() {
                       type="number"
                       className="form-control"
                       id="interestRate"
+                      value={interestRate}
+                      onChange={(e) => setInterestRate(e.target.value)}
                     ></input>
                     <div className="invalid-feedback">
                       Valid interest rate is required.
                     </div>
                   </div>
                   <div className="col-sm-4">
-                    <label htmlFor="amortization" className="form-label">
+                    <label htmlFor="amortizationYears" className="form-label">
                       Amortization (years)
                     </label>
                     <input
                       type="number"
                       className="form-control"
-                      id="amortization"
+                      id="amortizationYears"
+                      value={amortizationYears}
+                      onChange={(e) => setAmortizationYears(e.target.value)}
                     ></input>
                     <div className="invalid-feedback">
                       Valid amortization is required.
@@ -379,6 +481,8 @@ export default function AddProperty() {
                       type="number"
                       className="form-control"
                       id="holdingPeriod"
+                      value={holdingPeriod}
+                      onChange={(e) => setHoldingPeriod(e.target.value)}
                     ></input>
                     <div className="invalid-feedback">
                       Valid holding period is required.
@@ -392,6 +496,8 @@ export default function AddProperty() {
                       type="number"
                       className="form-control"
                       id="saleClosingCosts"
+                      value={saleClosingCosts}
+                      onChange={(e) => setSaleClosingCosts(e.target.value)}
                     ></input>
                     <div className="invalid-feedback">
                       Valid closing costs is required.
@@ -399,7 +505,11 @@ export default function AddProperty() {
                   </div>
                 </div>
                 <hr className="my-4"></hr>
-                <button className="w-100 btn btn-primary btn-lg" type="submit">
+                <button
+                  className="w-100 btn btn-primary btn-lg"
+                  type="button"
+                  onClick={addProperty}
+                >
                   Add Property
                 </button>
               </form>

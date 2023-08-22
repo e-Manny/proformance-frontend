@@ -32,6 +32,22 @@ export default function Property() {
     fetchData();
   }, [id]);
 
+  const deleteProperty = async () => {
+    const confirmed = window.confirm(
+      "Are you sure you want to delete this property?"
+    );
+    if (confirmed) {
+      try {
+        await httpClient.post("http://127.0.0.1:5000/deleteproperty", {
+          id,
+        });
+        navigate("/portfolio");
+      } catch (error) {
+        console.error("Error:", error);
+      }
+    }
+  };
+
   const userSignout = async () => {
     try {
       await httpClient.post("http://127.0.0.1:5000/logout");
@@ -154,8 +170,16 @@ export default function Property() {
                     <button
                       type="button"
                       className="btn btn-sm btn-outline-secondary"
+                      onClick={() => navigate(`/editproperty/${id}`)}
                     >
-                      Export
+                      Edit
+                    </button>
+                    <button
+                      type="button"
+                      className="btn btn-sm btn-outline-secondary"
+                      onClick={deleteProperty}
+                    >
+                      Delete
                     </button>
                   </div>
                 </div>

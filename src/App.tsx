@@ -19,7 +19,7 @@ function App() {
           <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/property/:id" element={<Property />} />
           <Route path="/addproperty" element={<AddProperty />} />
-          <Route path="/editproperty" element={<EditProperty />} />
+          <Route path="/editproperty/:id" element={<EditProperty />} />
         </Routes>
       </BrowserRouter>
     </>

@@ -1,7 +1,31 @@
+import { useParams, useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import httpClient from "../httpClient";
 import proformance from "../assets/proformance_transparent.png";
 import Footer from "../components/Footer";
-import editDict from "../components/editDict";
+
 export default function EditProperty() {
+  const { id } = useParams();
+  const [propertyData, setPropertyData] = useState({});
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const resp = await httpClient.post(
+          "http://127.0.0.1:5000/editproperty",
+          {
+            id,
+          }
+        );
+        setPropertyData(resp.data);
+        console.log(propertyData);
+      } catch (error) {
+        console.log("Not authenticated");
+      }
+    };
+    fetchData();
+  }, [id]);
+
   return (
     <>
       <div className="container">

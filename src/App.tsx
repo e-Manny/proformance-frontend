@@ -17,7 +17,7 @@ function App() {
           <Route path="/signin" element={<SignIn />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/portfolio" element={<Portfolio />} />
-          <Route path="/property" element={<Property />} />
+          <Route path="/property/:id" element={<Property />} />
           <Route path="/addproperty" element={<AddProperty />} />
           <Route path="/editproperty" element={<EditProperty />} />
         </Routes>

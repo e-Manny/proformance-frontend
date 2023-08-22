@@ -1,4 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
 import testDict from "../components/testDict";
 import plusSign from "../assets/plusSign.png";
 import hamburgerMenu from "../assets/hamburger.png";
@@ -7,7 +8,22 @@ import httpClient from "../httpClient";
 const dataObject = testDict;
 
 export default function Portfolio() {
+  const [propertyNames, setPropertyNames] = useState([]);
+  const [propertyIDs, setPropertyIDs] = useState([]);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const resp = await httpClient.get("http://127.0.0.1:5000/@me");
+        setPropertyNames(resp.data.propertyNames);
+        setPropertyIDs(resp.data.propertyIDs);
+      } catch (error) {
+        console.log("Not authenticated");
+      }
+    };
+    fetchData();
+  }, []);
 
   const userSignout = async () => {
     try {
@@ -94,39 +110,26 @@ export default function Portfolio() {
                 </h6>
                 <ul className="nav flex-column mb-auto">
                   <li className="nav-item">
-                    <a
-                      className="nav-link d-flex align-items-center gap-2"
-                      href="#"
-                    >
-                      Prop 1
-                    </a>
+                    {propertyNames.map((name, i) => (
+                      <Link
+                        className="nav-link d-flex align-items-center gap-2"
+                        to={`/property/${propertyIDs[i]}`}
+                      >
+                        {name}
+                      </Link>
+                    ))}
                   </li>
-                  <li className="nav-item">
-                    <a
-                      className="nav-link d-flex align-items-center gap-2"
-                      href="#"
-                    >
-                      Prop 2
-                    </a>
-                  </li>
+                  <li className="nav-item"></li>
                 </ul>
 
                 <hr className="my-3"></hr>
 
                 <ul className="nav flex-column mb-auto">
                   <li className="nav-item">
-                    <a
-                      className="nav-link d-flex align-items-center gap-2"
-                      href="#"
-                    >
-                      Settings
-                    </a>
-                  </li>
-                  <li className="nav-item">
                     <Link
                       className="nav-link d-flex align-items-center gap-2"
                       onClick={userSignout}
-                      to={"/"}
+                      to={"#"}
                     >
                       Sign out
                     </Link>
